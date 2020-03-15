@@ -4,9 +4,15 @@ spring:
   cloud:
     config:
       profile: dev
-      discovery:
-        service-id: config-server
-        enabled: true
+      uri: http://192.168.124.23:8100
+#      discovery:
+#        service-id: config-server
+#        enabled: true
+      retry:
+        initial-interval: 1000
+        max-attempts: 6
+        max-interval: 5000
+        multiplier: 1.1
 eureka:
   client:
     service-url:
